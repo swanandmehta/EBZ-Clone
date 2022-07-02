@@ -14,6 +14,7 @@ import { HeaderNavigationComponent } from './component/header-navigation/header-
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [HeaderComponent]
 })
 export class SharedModule { }
