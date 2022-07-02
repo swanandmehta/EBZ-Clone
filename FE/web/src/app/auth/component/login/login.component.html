@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class="login-container">
+  <form [formGroup]="loginFormGroup" class="login-form">
+    <div class="login-input">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ "auth.login.email.label" | transloco }}</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          [placeholder]="'auth.login.email.placeholder' | transloco"
+        />
+        <mat-error *ngIf="loginFormGroup.controls.email.hasError('email')">
+          {{ "auth.login.email.invalidEmail" | transloco }}
+        </mat-error>
+        <mat-error *ngIf="loginFormGroup.controls.email.hasError('required')">
+          {{ "auth.login.email.invalidEmail" | transloco }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="login-input">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ "auth.login.password.label" | transloco }}</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          [placeholder]="'auth.login.password.placeholder' | transloco"
+        />
+        <mat-error
+          *ngIf="loginFormGroup.controls.password.hasError('required')"
+        >
+          {{ "auth.login.password.invalidPassword" | transloco }}
+        </mat-error>
+        <mat-error
+          *ngIf="loginFormGroup.controls.password.hasError('minlength')"
+        >
+          {{ "auth.login.password.invalidPassword" | transloco }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="login-form-action-container">
+    <div class="action-btn">
+      <button mat-raised-button color="primary" (click)="login()">
+        {{ "auth.login.action.login" | transloco }}
+      </button>
+    </div>
+    <div class="action-btn">
+      <button mat-raised-button routerLink="../reset-password">
+        {{ "auth.login.action.resetPassword" | transloco }}
+      </button>
+    </div>
+  </div>
+</div>

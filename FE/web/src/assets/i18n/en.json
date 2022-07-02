@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "login": {
+      "email": {
+        "label": "Email",
+        "invalidEmail": "Please provide valid email",
+        "placeholder": "john.smith@gmail.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Password",
+        "invalidPassword": "Please provide valid password"
+      },
+      "action": {
+        "login": "Login",
+        "resetPassword": "Reset Password"
+      }
+    }
+  }
+}

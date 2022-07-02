@@ -1,0 +1,29 @@
+.login-container {
+  width: 30vw;
+  height: 100vh;
+  margin-left: 35vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+
+    .login-input {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .login-form-action-container {
+    display: flex;
+    align-items: flex-start;
+
+    .action-btn {
+      margin-right: 1rem;
+    }
+
+  }
+}
