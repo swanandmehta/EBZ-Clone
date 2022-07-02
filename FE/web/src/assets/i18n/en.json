@@ -15,6 +15,23 @@
         "login": "Login",
         "resetPassword": "Reset Password"
       }
+    },
+    "resetPassword": {
+      "email": {
+        "label": "Email",
+        "placeholder": "john.smith@gmail.com",
+        "invalidEmail": "Please provide valid email"
+      },
+      "action": {
+        "submit": "Request for password recovery",
+        "backToLogin": "Back to login"
+      },
+      "feedback": {
+        "info": {
+          "title": "Request Processed",
+          "message": "The request has been process successfully. You will recieve a email with detail instructions to reset the password."
+        }
+      }
     }
   }
 }

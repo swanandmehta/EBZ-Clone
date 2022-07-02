@@ -9,6 +9,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [AuthMainComponent, LoginComponent, ResetPasswordComponent],
@@ -19,6 +20,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     MatInputModule,
     TranslocoModule,
     MatButtonModule,
+    SharedModule
   ],
 })
 export class AuthModule {}
