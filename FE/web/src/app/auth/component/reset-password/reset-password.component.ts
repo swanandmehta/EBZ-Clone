@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotificationType } from 'src/app/shared/enums/notification-type';
+import { AuthService } from 'src/app/shared/service/auth.service';
 import { NotificationService } from 'src/app/shared/service/notification.service';
 import { TranslationService } from 'src/app/shared/service/translation.service';
+import { ResetPassword } from '../../interface/reset-password';
 
 @Component({
   selector: 'app-reset-password',
@@ -12,7 +15,13 @@ import { TranslationService } from 'src/app/shared/service/translation.service';
 export class ResetPasswordComponent implements OnInit {
   resetPasswordFormGroup: FormGroup;
 
-  constructor(fb: FormBuilder, private translationService: TranslationService, private notificationService: NotificationService) {
+  constructor(
+    fb: FormBuilder,
+    private translationService: TranslationService,
+    private notificationService: NotificationService,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.resetPasswordFormGroup = fb.group({
       email: ['', [Validators.required, Validators.email]],
     });
@@ -21,11 +30,29 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {}
 
   resetPassword(): void {
-    console.log(this.resetPasswordFormGroup)
-    let title: string = this.translationService.translate('auth.resetPassword.feedback.info.title');
-    let message: string = this.translationService.translate('auth.resetPassword.feedback.info.message');
+    if (this.resetPasswordFormGroup.valid) {
+      this.authService
+        .resetPassword(this.resetPasswordFormGroup.value as ResetPassword)
+        .subscribe({
+          next: () => {
+            let title: string = this.translationService.translate(
+              'auth.resetPassword.feedback.info.title'
+            );
+            let message: string = this.translationService.translate(
+              'auth.resetPassword.feedback.info.message'
+            );
+            this.notificationService.notify(
+              title,
+              message,
+              NotificationType.Info
+            );
 
-    this.notificationService.notify(title, message, NotificationType.Info)
-
+            this.router.navigateByUrl('auth/login');
+          },
+          error: () => {
+            //TODO: Handle Error
+          },
+        });
+    }
   }
 }
