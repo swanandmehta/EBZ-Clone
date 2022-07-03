@@ -10,6 +10,7 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AuthMainComponent, LoginComponent, ResetPasswordComponent],
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     MatInputModule,
     TranslocoModule,
     MatButtonModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
   ],
 })
 export class AuthModule {}
