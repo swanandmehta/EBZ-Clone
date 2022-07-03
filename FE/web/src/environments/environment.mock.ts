@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   server: {
-    url: ""
+    url: "https://3191f374-0445-4a99-a2ca-8eb9c56cf49f.mock.pstmn.io"
   },
 };
 
