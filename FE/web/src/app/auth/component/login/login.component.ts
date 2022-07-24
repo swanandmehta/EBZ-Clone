@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '../../interface/login';
 import { AuthService } from '../../../shared/service/auth.service';
+import { LoginResponse } from '../../interface/login-response';
+import { UserService } from 'src/app/shared/service/user.service';
+import { SchoolService } from 'src/app/shared/service/school.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    private schoolService: SchoolService
   ) {
     this.loginFormGroup = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,7 +33,9 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.loginFormGroup.valid) {
       this.authService.login(this.loginFormGroup.value as Login).subscribe({
-        next: () => {
+        next: (response: LoginResponse) => {
+          this.userService.loadUserById(response.userId);
+          this.schoolService.loadSchoolByUserId(response.userId);
           this.router.navigateByUrl('/dashboard');
         },
         error: () => {

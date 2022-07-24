@@ -1,25 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { School } from '../interface/school';
-import { SchoolMonitorService } from '../monitors/school-monitor.service';
+import { User } from '../interface/user';
+import { UserMonitorService } from '../monitors/user-monitor.service';
 import { SharedModule } from '../shared.module';
 
 @Injectable({
   providedIn: SharedModule,
 })
-export class SchoolService {
+export class UserService {
   constructor(
     private httpClient: HttpClient,
-    private monitor: SchoolMonitorService
+    private monitor: UserMonitorService
   ) {}
 
-  loadSchoolByUserId(userId: string): void {
+  loadUserById(userId: string): void {
+    this.loadUserInfo(userId);
+  }
+
+  private loadUserInfo(userId: string): void {
     this.httpClient
-      .get<School>(environment.server.url + '/user/' + userId + '/school')
+      .get<User>(environment.server.url + '/user/' + userId)
       .subscribe({
-        next: (school: School) => {
-          this.monitor.school = school;
+        next: (user: User) => {
+          this.monitor.user = user;
         },
         error: () => {
           //TODO: Handle error

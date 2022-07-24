@@ -4,7 +4,7 @@ import { School } from '../interface/school';
 import { SharedModule } from '../shared.module';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: SharedModule,
 })
 export class SchoolMonitorService {
   private schoolSubject: Subject<School> = new BehaviorSubject<School>({
