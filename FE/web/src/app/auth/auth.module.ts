@@ -19,10 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
-    TranslocoModule,
     MatButtonModule,
     SharedModule,
-    HttpClientModule,
   ],
 })
 export class AuthModule {}

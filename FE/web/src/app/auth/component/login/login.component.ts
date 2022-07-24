@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Login } from '../../interface/login';
 import { AuthService } from '../../../shared/service/auth.service';
 import { LoginResponse } from '../../interface/login-response';
-import { UserService } from 'src/app/shared/service/user.service';
-import { SchoolService } from 'src/app/shared/service/school.service';
+import { SessionService } from 'src/app/shared/service/session.service';
+import { StorageKey } from 'src/app/shared/enums/storage-key';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,7 @@ export class LoginComponent implements OnInit {
     fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private userService: UserService,
-    private schoolService: SchoolService
+    private sessionService: SessionService
   ) {
     this.loginFormGroup = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -34,8 +33,7 @@ export class LoginComponent implements OnInit {
     if (this.loginFormGroup.valid) {
       this.authService.login(this.loginFormGroup.value as Login).subscribe({
         next: (response: LoginResponse) => {
-          this.userService.loadUserById(response.userId);
-          this.schoolService.loadSchoolByUserId(response.userId);
+          this.sessionService.setItem(StorageKey.USERID, response.userId);
           this.router.navigateByUrl('/dashboard');
         },
         error: () => {

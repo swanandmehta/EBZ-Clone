@@ -1,0 +1,21 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+
+  .header-search-container {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .header-title-container {
+      padding: 0;
+      margin: 0;
+      font-size: xx-large;
+    }
+  }
+
+  app-header-navigation {
+    margin-left: auto;
+  }
+}

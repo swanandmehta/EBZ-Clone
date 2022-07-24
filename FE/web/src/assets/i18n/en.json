@@ -33,5 +33,21 @@
         }
       }
     }
+  },
+  "navigation": {
+    "headerNavigation": {
+      "student": {
+        "label": "STUDENT"
+      },
+      "service": {
+        "label": "SERVICE"
+      },
+      "payment": {
+        "label": "PAYMENT"
+      },
+      "communication": {
+        "label": "COMMUNICATION"
+      }
+    }
   }
 }
