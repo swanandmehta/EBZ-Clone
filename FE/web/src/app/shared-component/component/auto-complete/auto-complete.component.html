@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      matInput
+      formControlName="control"
+      [matAutocomplete]="auto"
+    />
+    <mat-error *ngIf="form.controls.control.hasError('minlength')">
+      {{ invalidInputMessage }}
+    </mat-error>
+    <mat-error *ngIf="showNoMatchFoundMessage">
+      {{ noMatchFoundMessage }}
+    </mat-error>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.text"
+      >
+        {{ option.text }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

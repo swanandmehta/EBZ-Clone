@@ -48,6 +48,14 @@
       "communication": {
         "label": "COMMUNICATION"
       }
+    },
+    "headerSearch": {
+      "label": "Student Name",
+      "placeholder": "Please type student name",
+      "error": {
+        "invalidInput": "Please provide more then 3 character to continue",
+        "noMatch": "No match found for given search"
+      }
     }
   }
 }

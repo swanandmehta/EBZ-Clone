@@ -7,6 +7,7 @@ import { HeaderSearchComponent } from './component/header-search/header-search.c
 import { HeaderNavigationComponent } from './component/header-navigation/header-navigation.component';
 import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedComponentModule } from '../shared-component/shared-component.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     NavigationRoutingModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedComponentModule
   ],
   exports: [HeaderComponent],
 })

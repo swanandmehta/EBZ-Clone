@@ -1,1 +1,9 @@
-<p>header-search works!</p>
+<app-auto-complete
+  [filteredOptions]="options"
+  (handleInputChange)="search($event)"
+  [label]="'navigation.headerSearch.label' | transloco"
+  [limiter]="100"
+  [placeholder]="'navigation.headerSearch.placeholder' | transloco"
+  [invalidInputMessage]="'navigation.headerSearch.error.invalidInput' | transloco"
+  [noMatchFoundMessage]="'navigation.headerSearch.error.noMatch' | transloco"
+></app-auto-complete>
