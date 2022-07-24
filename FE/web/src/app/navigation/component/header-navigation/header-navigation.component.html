@@ -1,29 +1,29 @@
 <div class="header-navigation">
-  <div class="navigation-container">
+  <div routerLink="/student" class="navigation-container">
     <fa-icon [icon]="faGraduationCap" size="4x"></fa-icon>
     <h5>{{ "navigation.headerNavigation.student.label" | transloco }}</h5>
   </div>
 
-  <div class="navigation-container">
+  <div routerLink="/service" class="navigation-container">
     <fa-icon [icon]="faBox" size="4x"></fa-icon>
     <h5>{{ "navigation.headerNavigation.service.label" | transloco }}</h5>
   </div>
 
-  <div class="navigation-container">
+  <div routerLink="/transaction" class="navigation-container">
     <fa-icon [icon]="faFileInvoiceDollar" size="4x"></fa-icon>
     <h5>{{ "navigation.headerNavigation.payment.label" | transloco }}</h5>
   </div>
 
-  <div class="navigation-container">
+  <div routerLink="/communication" class="navigation-container">
     <fa-icon [icon]="faTowerCell" size="4x"></fa-icon>
     <h5>{{ "navigation.headerNavigation.communication.label" | transloco }}</h5>
   </div>
 
   <div class="navigation-container">
     <div class="navigation-control-container">
-      <fa-icon [icon]="faRightFromBracket" size="lg"></fa-icon>
-      <fa-icon [icon]="faCartShopping" size="lg"></fa-icon>
-      <fa-icon [icon]="faUserGear" size="lg"></fa-icon>
+      <fa-icon routerLink="/logout" [icon]="faRightFromBracket" size="lg"></fa-icon>
+      <fa-icon routerLink="/cart" [icon]="faCartShopping" size="lg"></fa-icon>
+      <fa-icon routerLink="/setting" [icon]="faUserGear" size="lg"></fa-icon>
     </div>
   </div>
 </div>

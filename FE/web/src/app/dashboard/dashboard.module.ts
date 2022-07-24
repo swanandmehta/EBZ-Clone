@@ -6,6 +6,7 @@ import { DashboardMainComponent } from './component/dashboard-main/dashboard-mai
 import { HomeComponent } from './component/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { NavigationModule } from '../navigation/navigation.module';
+import { WidgetModule } from '../widget/widget.module';
 
 @NgModule({
   declarations: [DashboardMainComponent, HomeComponent],
@@ -14,6 +15,7 @@ import { NavigationModule } from '../navigation/navigation.module';
     DashboardRoutingModule,
     SharedModule,
     NavigationModule,
+    WidgetModule,
   ],
 })
 export class DashboardModule {}

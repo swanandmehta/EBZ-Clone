@@ -57,5 +57,14 @@
         "noMatch": "No match found for given search"
       }
     }
+  },
+  "dashboard": {
+    "widgets": {
+      "earnings": {
+        "billed": "BILLED",
+        "recieved": "ALREADY RECIEVED",
+        "pending": "PENDING"
+      }
+    }
   }
 }

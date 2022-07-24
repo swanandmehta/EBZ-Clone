@@ -1,0 +1,24 @@
+<div class="earning-container">
+  <h3 class="widget-title">
+    {{ "dashboard.widgets.earnings.billed" | transloco }}
+  </h3>
+  <h4 class="widget-value">{{ widget.total }}</h4>
+  <h3 class="widget-title">
+    {{ "dashboard.widgets.earnings.recieved" | transloco }}
+  </h3>
+  <h4 class="widget-value">{{ widget.recieved }}</h4>
+  <h3 class="widget-title">
+    {{ "dashboard.widgets.earnings.pending" | transloco }}
+  </h3>
+  <h4 class="widget-value">{{ widget.pending }}</h4>
+</div>
+<div class="chart-container" *ngIf="isChartLoaded && chart">
+  <canvas
+    baseChart
+    [data]="chart.data"
+    [options]="chart.options"
+    [legend]="true"
+    [type]="'bar'"
+  >
+  </canvas>
+</div>
